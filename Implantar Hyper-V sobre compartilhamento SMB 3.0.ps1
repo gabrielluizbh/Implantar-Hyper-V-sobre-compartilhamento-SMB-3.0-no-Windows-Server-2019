@@ -1,4 +1,4 @@
-﻿## Implantar Hyper-V sobre SMB 3.0 - Créditos Gabriel Luiz - www.gabrielluiz.com ##
+﻿## Implantar Hyper-V sobre SMB 3.0 - Créditos Gabriel Luiz - www.gabrielluiz.com e www.cooperati.com.br ##
 
 
 $Servers = 'FILE' # Hostname do servidor de arquivos.
