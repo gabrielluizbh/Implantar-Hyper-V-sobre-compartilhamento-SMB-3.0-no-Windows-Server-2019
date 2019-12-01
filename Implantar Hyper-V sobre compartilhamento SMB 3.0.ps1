@@ -9,7 +9,6 @@ $Servers | ForEach { Install-WindowsFeature -ComputerName $_ -Name File-Services
 # Observação: Este comando pode ser executado de qualquer servidor ingressado em seu domínio.
 
 
-
 # Criação do compartilhamento SMB 3.0.
 
 MD C:\VMS # Cria a pasta com nome VMs
@@ -20,7 +19,6 @@ Set-SmbPathAcl -ShareName VMS # Define as mesmas permissões de compartilhamento
 
 
 # Observação: Este comando pode ser executado no servidor que será utilizado como File Service.
-
 
 
 # Instalação da função de Hyper-V.
@@ -35,7 +33,6 @@ Restart-Computer -ComputerName NO3, NO4 -force # Força a renicialização dos s
 # Observação: Este comando pode ser executado de qualquer servidor ingressado em seu domínio.
 
 
-
 # Criação da máquina virtual armazenada em compartilhamento SMB 3.0.
 
 New-VHD -Path \\FILE\VMS\VM.VHDX -SizeBytes 127GB -Dynamic
@@ -43,7 +40,6 @@ New-VHD -Path \\FILE\VMS\VM.VHDX -SizeBytes 127GB -Dynamic
 New-VM -Name VM -Path \\FILE\VMS -Memory 1GB -VHDPath \\FILE\VMS\VM.VHDX
 
 # Observação: Execute este comando em um dos servidores de host de Hyper-V.
-
 
 
 # Habilita a migração ao vivo nos servidores hosts de Hyper-V.
@@ -82,9 +78,7 @@ Get-VMMigrationNetwork # Verfica a rede habilta para a migração ao vivo.
 # Habilitar a delegação.
 
 
-# Toda parte da será demostrada em vídeo.
-
-
+# Toda parte da delegação será demostrada em vídeo.
 
 
 # Migração ao vivo da máquina virtual.
@@ -93,7 +87,6 @@ Get-VMMigrationNetwork # Verfica a rede habilta para a migração ao vivo.
 Move-VM "VM" NO4 # Move a máquina virtual com o nome VM para um servidor remoto NO4 quando a máquina virtual é armazenada em um compartilhamento SMB 3.0.
 
 # Observação: Este comando deve ser executada aonde a máquina virtual foi criada.
-
 
 
 # Observações: Todos os servidores envolvidos neste laboratório estão ingressados em domínio. Utilizamos o Windows Server 2019 para fazer o nosso laboratório.
